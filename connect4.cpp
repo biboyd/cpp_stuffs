@@ -13,6 +13,7 @@ void displayBoard(int board [] [7]);
 void updateBoard(int board [] [7], int column, int player);
 int comPick(int board [] [7]);
 int check3(int board [] [7], int player);
+int check2(int board [] [7], int player);
 
 int main () {
     int numPlay;
@@ -176,7 +177,7 @@ int comPick(int board [] [7]){
     }
     //build to 3
     if (check2) {
-
+	return check
     }
     //build to 2
     int col = rand() % 7 + 1;
