@@ -177,10 +177,9 @@ int comPick(int board [] [7]){
     }
     //build to 3
     if (check2) {
-	return check
+	return check;
     }
     //build to 2
     int col = rand() % 7 + 1;
     return col;
 }
-
