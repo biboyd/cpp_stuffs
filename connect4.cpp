@@ -166,6 +166,11 @@ int check3(int board [] [7], int player){
     return 0;
 }
 
+int check2(int board [] [7], int player){
+    //for future implementation
+    //return 0 for now
+    return 0
+}
 int comPick(int board [] [7]){
     //first check to see if player 1 has a chance at winning
     if (check3(board, 1) > 0 ) {
@@ -176,10 +181,13 @@ int comPick(int board [] [7]){
         return check3(board, 2);
     }
     //build to 3
-    if (check2) {
-	return check
+    if (check2(board, 2>0) {
+	return check2(board, 2);
     }
-    //build to 2
+    //stop opponent from building to 3
+    if (check2(board, 1){
+        return check2(board, 1);
+    }
     int col = rand() % 7 + 1;
     return col;
 }
