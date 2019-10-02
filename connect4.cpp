@@ -168,18 +168,35 @@ int check3(int board[][7], int player) {
 }
 
 int check2(int board[][7], int player) {
-  // for future implementation
-  // return 0 for now
+  int directions[4][2] = {{1, 0}, {0, 1}, {1, 1}, {1, -1}};
+  for (int row = 5; row >= 0; row--) {
+    for (int col = 6; col >= 0; col--) {
+      // cout << row << col <<board[row][col] << board[row-1][col] <<endl;
+      if ((board[row][col] == 0) && (board[row + 1][col] != 0)) {
+        for (int k = 0; k < 3; k++) {
+          int *prow = &directions[k][0], *pcol = &directions[k][1];
+          int counter = 0;
+
+          check(board, row, col, counter, prow, pcol, 'b', player);
+          check(board, row, col, counter, prow, pcol, 'f', player);
+          // cout << row << col <<counter<< endl;
+          if (counter == 2) {
+            return ++col;
+          }
+        }
+      }
+    }
+  }
   return 0;
 }
 int comPick(int board[][7]) {
-  // first check to see if player 1 has a chance at winning
-  if (check3(board, 1) > 0) {
-    return check3(board, 1);
-  }
-  // try to connect 4
+  // first try to connect 4
   if (check3(board, 2) > 0) {
     return check3(board, 2);
+  }
+  // check to see if player 1 has a chance at winning
+  if (check3(board, 1) > 0) {
+    return check3(board, 1);
   }
   // build to 3
   if (check2(board, 2) > 0) {
